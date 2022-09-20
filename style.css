@@ -49,3 +49,9 @@ form svg {
     right: 245px;
     color: #607EAA;
 }
+
+.container-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:auto;
+}
