@@ -3,6 +3,6 @@ Una aplicación web donde puedes observar las películas más populares del mome
 
 ## Conceptos usados
 
->Consumo de API REST
->Uso de promesas
->Manipulación del dom
+* Consumo de API REST
+* Uso de promesas
+* Manipulación del dom
