@@ -26,11 +26,11 @@ header nav{
 input[type="search"] {
     padding: 10px 10px 10px 40px;
     margin-right: 10px;
-    border-radius: 20px;
+    border-radius: 30px;
     font-size: 18px;
-    outline: none;
     border: 2px solid #256D85;
     background-color: transparent;
+    font-family: inherit;
 }
 
 input[type="search"]::placeholder{
@@ -40,18 +40,17 @@ input[type="search"]::placeholder{
 input[type="search"]:focus{
     color: #000;
     background-color: #fff;
-    border: none;
+    outline: none;
 }
 
 form svg {
     position: absolute;
     top: 28px;
-    right: 245px;
+    right: 255px;
     color: #607EAA;
 }
 
-.container-grid {
+main {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows:auto;
+    grid-template: auto / repeat(4, 1fr);
 }
