@@ -8,7 +8,7 @@ export const useMovie = (initialValue: number) => {
     [loading, setLoading] = useState(true),
     [page, setPage] = useState(initialValue);
 
-  const getMovies = async (count?: number) => {
+  const getMovies = async (count: number) => {
     try {
       const response = await fetch(`${API_URL}${count}`);
       const data = await response.json();
