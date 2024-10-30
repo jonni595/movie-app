@@ -1,7 +1,7 @@
 import { Container } from "./Layout.style";
 
 const Layout = () => {
-  return <Container>Layout</Container>;
+  return <Container></Container>;
 };
 
 export default Layout;
