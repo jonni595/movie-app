@@ -21,7 +21,6 @@ export const useMovie = (initialValue: number, initialQuery?: string) => {
       const response = await fetch(url);
       const data = await response.json();
       setMovie(data);
-      console.log(data);
     } catch (error) {
       if (error instanceof Error) {
         setError(error.message);
