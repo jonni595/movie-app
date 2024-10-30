@@ -29,3 +29,7 @@ export interface MainProps {
 export interface CardProps {
   movie: IMovieResult;
 }
+
+export interface ButtonProps {
+  onNextClick: () => void;
+}

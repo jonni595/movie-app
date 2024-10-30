@@ -10,11 +10,15 @@ export const Button = styled.button`
   cursor: pointer;
   font-size: 17px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 
   &:hover {
-    background: #21052d;
-    color: #7e60bf;
-    opacity: 0.8;
+    background: #503687;
+    color: #896ec5;
+    // opacity: 0.8;
   }
 `;
