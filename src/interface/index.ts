@@ -1,3 +1,5 @@
+import { IconType } from "react-icons";
+
 export interface IMovie {
   page: number;
   results: IMovieResult[];
@@ -31,5 +33,8 @@ export interface CardProps {
 }
 
 export interface ButtonProps {
-  onNextClick: () => void;
+  Icon: IconType;
+  children: string;
+  onClick: () => void;
+  direction?: string;
 }

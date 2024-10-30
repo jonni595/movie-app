@@ -26,12 +26,16 @@ export const useMovie = (initialValue: number) => {
     setPage(page + 1);
   };
 
+  const handlePrevPage = () => {
+    setPage(page - 1);
+  };
+
   useEffect(() => {
     const timer = setTimeout(() => {
       getMovies(page);
-    }, 3000);
+    }, 1500);
     return () => clearTimeout(timer);
   }, [page]);
 
-  return { movie, error, loading, page, handleNextPage };
+  return { movie, error, loading, page, handleNextPage, handlePrevPage };
 };
