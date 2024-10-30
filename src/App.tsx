@@ -7,10 +7,24 @@ import { Container } from "./layout/Layout.style";
 import Main from "./layout/Main";
 import { theme } from "./theme/theme";
 import { useMovie } from "./hooks/useMovie";
+import { useState } from "react";
 
 const App = () => {
-  const { movie, error, loading, page, handleNextPage, handlePrevPage } =
-    useMovie(1);
+  const [search, setSearch] = useState("");
+  const {
+    movie,
+    error,
+    loading,
+    page,
+    handleNextPage,
+    handlePrevPage,
+    setQuery,
+  } = useMovie(1, search);
+
+  const handleSubmit = () => {
+    setQuery(search);
+    setSearch("");
+  };
 
   if (error) {
     return <div>{error}</div>;
@@ -20,7 +34,11 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Container>
         <GlobalStyles />
-        <Navbar />
+        <Navbar
+          query={search}
+          onChange={(e) => setSearch(e.target.value)}
+          onSubmit={handleSubmit}
+        />
         <Main>
           {loading ? (
             <Loading />

@@ -1,18 +1,27 @@
 import { useEffect, useState } from "react";
 import type { IMovie } from "../interface";
-import { API_URL } from "../config";
+import { API_URL, SEARCH_API } from "../config";
 
-export const useMovie = (initialValue: number) => {
+export const useMovie = (initialValue: number, initialQuery?: string) => {
   const [movie, setMovie] = useState<IMovie | null>(null),
     [error, setError] = useState<string | null>(null),
     [loading, setLoading] = useState(true),
-    [page, setPage] = useState(initialValue);
+    [page, setPage] = useState<number>(initialValue),
+    [query, setQuery] = useState<string>(initialQuery || "");
 
-  const getMovies = async (count: number) => {
+  const getMovies = async (count: number, search?: string) => {
     try {
-      const response = await fetch(`${API_URL}${count}`);
+      let url = "";
+      if (query) {
+        url = `${SEARCH_API}${search}`;
+      } else {
+        url = `${API_URL}${count}`;
+      }
+
+      const response = await fetch(url);
       const data = await response.json();
       setMovie(data);
+      console.log(data);
     } catch (error) {
       if (error instanceof Error) {
         setError(error.message);
@@ -32,10 +41,18 @@ export const useMovie = (initialValue: number) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      getMovies(page);
+      getMovies(page, query);
     }, 1500);
     return () => clearTimeout(timer);
-  }, [page]);
+  }, [page, query]);
 
-  return { movie, error, loading, page, handleNextPage, handlePrevPage };
+  return {
+    movie,
+    error,
+    loading,
+    page,
+    handleNextPage,
+    handlePrevPage,
+    setQuery,
+  };
 };
