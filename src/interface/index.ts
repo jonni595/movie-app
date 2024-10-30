@@ -38,3 +38,9 @@ export interface ButtonProps {
   onClick: () => void;
   direction?: string;
 }
+
+export interface NavbarProps {
+  query: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onSubmit: () => void;
+}
