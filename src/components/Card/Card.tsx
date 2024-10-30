@@ -1,4 +1,5 @@
 import { IMG_PATH } from "../../config";
+import { getLimit } from "../../functions/getLimit";
 import type { CardProps } from "../../interface";
 import {
   Container,
@@ -19,7 +20,7 @@ const Card: React.FC<CardProps> = ({ movie }) => {
         <Image src={IMG_PATH + movie.poster_path} alt={movie.title} />
         <OverviewContainer>
           <Title>{movie.title}</Title>
-          <Overview>{movie.overview}</Overview>
+          <Overview>{getLimit(movie.overview)}</Overview>
           <VoteContainer>
             <Language>{movie.original_language}</Language>
             <Vote>{movie.vote_average}</Vote>
